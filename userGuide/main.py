@@ -29,3 +29,11 @@ async def root():
 #     DELETE: to delete data.
 # So, in OpenAPI, each of the HTTP methods is calle d an "operation".
 # We are going to call them "operations" too.
+
+
+@app.get("/items/{item_id}")
+async def read_item(item_id : int):
+    ''' The value of the path parameter item_id will be passed to your function as the argument item_id.
+            So, if you run this example and go to http://127.0.0.1:8000/items/foo, you will see a response of :
+                {"item_id":"foo"} '''
+    return {"item_id": item_id}
