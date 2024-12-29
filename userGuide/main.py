@@ -6,7 +6,15 @@ for run project for dev or standard :
     dev : fastapi dev main.py
     standard : fastapi run main.py
 '''
+from  enum import Enum
 from fastapi import FastAPI
+
+class ModelName(str, Enum):
+    # Thies is tmp/example of value validation.
+    alexnet = "alexnet"
+    resnet = "resnet"
+    lenet = "lenet"
+
 
 app = FastAPI()
 
@@ -37,3 +45,14 @@ async def read_item(item_id : int):
             So, if you run this example and go to http://127.0.0.1:8000/items/foo, you will see a response of :
                 {"item_id":"foo"} '''
     return {"item_id": item_id}
+
+# This function it only get values from ENUM that defined earlier and return something.
+@app.get("/models/{model_name}")
+async def get_model(model_name: ModelName):
+    if model_name is ModelName.alexnet:
+        return {"model_name": model_name, "message": "Deep Learning FTW!"}
+
+    if model_name.value == "lenet":
+        return {"model_name": model_name, "message": "LeCNN all the images"}
+
+    return {"model_name": model_name, "message": "Have some residuals"}
