@@ -18,6 +18,8 @@ class ModelName(str, Enum):
 
 app = FastAPI()
 
+fake_items_db = [{"item_name": "Foo"}, {"item_name": "Bar"}, {"item_name": "Baz"}]
+
 
 # First Steps
 @app.get("/") # "Path" here refers to the last part of the URL starting from the first '/',for example : https://example.com/items/foo
@@ -45,6 +47,13 @@ async def read_item(item_id : int):
             So, if you run this example and go to http://127.0.0.1:8000/items/foo, you will see a response of :
                 {"item_id":"foo"} '''
     return {"item_id": item_id}
+
+
+@app.get("/items/")
+async def read_item_in_Fake_db(skip: int = 0, limit: int = 10):
+    return fake_items_db[skip : skip + limit]
+
+
 
 # This function it only get values from ENUM that defined earlier and return something.
 @app.get("/models/{model_name}")
