@@ -1,4 +1,4 @@
-# Learn FastAPI
+fastapi dev main.pystAPI
 
 Welcome to the **Learn FastAPI** repository! This is a structured learning resource designed to help you master [FastAPI](https://fastapi.tiangolo.com/), the modern, high-performance web framework for Python, step by step. Whether you're a beginner or an experienced developer exploring FastAPI for the first time, this repository has something for you.
 
@@ -75,7 +75,7 @@ Before you begin, make sure you have:
 4. Start the FastAPI development server:
 
    ```bash
-   uvicorn main:app --reload
+   fastapi dev main.py
    ```
 
 5. Open your browser and visit [http://127.0.0.1:8000](http://127.0.0.1:8000) to see the application running.
@@ -146,4 +146,3 @@ Special thanks to the creators of FastAPI for building an amazing framework and 
 ---
 
 Happy coding! 🎉
-
