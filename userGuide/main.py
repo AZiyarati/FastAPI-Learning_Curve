@@ -56,3 +56,7 @@ async def get_model(model_name: ModelName):
         return {"model_name": model_name, "message": "LeCNN all the images"}
 
     return {"model_name": model_name, "message": "Have some residuals"}
+
+# for more details, read here.
+# https://fastapi.tiangolo.com/tutorial/path-params/#path-parameters-containing-paths
+# https://fastapi.tiangolo.com/tutorial/path-params/#path-convertor
