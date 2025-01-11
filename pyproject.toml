@@ -1,0 +1,13 @@
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
+pythonVersion = "3.13"
+typeCheckingMode = "strict"
+reportMissingImports = true
+extraPaths = ["./app", "./src"]
+
+[tool.ruff]
+line-length = 88
+select = ["E", "F", "W", "C"]
+ignore = ["E501"]
+fixable = ["ALL"]
