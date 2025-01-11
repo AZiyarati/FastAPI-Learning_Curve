@@ -8,6 +8,14 @@ for run project for dev or standard :
 '''
 from  enum import Enum
 from fastapi import FastAPI
+from pydantic import BaseModel
+
+class Item(BaseModel):
+    name: str
+    description: str | None = None
+    price: float
+    tax: float | None = None
+
 
 class ModelName(str, Enum):
     # Thies is tmp/example of value validation.
@@ -69,3 +77,8 @@ async def get_model(model_name: ModelName):
 # for more details, read here.
 # https://fastapi.tiangolo.com/tutorial/path-params/#path-parameters-containing-paths
 # https://fastapi.tiangolo.com/tutorial/path-params/#path-convertor
+
+# https://fastapi.tiangolo.com/tutorial/body/#create-your-data-model
+@app.post("/items/")
+async def create_item(item: Item):
+    return item
